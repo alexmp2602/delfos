@@ -1,0 +1,20 @@
+---
+const benefits = [
+  { icon: '⚡', title: 'Velocidad' },
+  { icon: '🎨', title: 'Dise\u00f1o estrat\u00e9gico' },
+  { icon: '🤝', title: 'Atenci\u00f3n personalizada' },
+];
+---
+<section id="why" style="background:var(--color-dark-alt);">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:2rem;">\u00bfPor qu\u00e9 elegirnos?</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+      {benefits.map(b => (
+        <div style="flex:1 1 150px;text-align:center;">
+          <div style="font-size:2rem;">{b.icon}</div>
+          <p>{b.title}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
