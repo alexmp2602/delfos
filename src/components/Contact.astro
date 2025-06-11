@@ -1,16 +1,41 @@
 ---
+
 ---
+
 <section id="contact" style="background:var(--color-dark-alt);">
   <div class="container" style="max-width:600px;">
     <h2 style="text-align:center;margin-bottom:2rem;">Contacto</h2>
-    <form method="post" netlify>
+    <form method="post" data-netlify="true">
       <div style="display:flex;flex-direction:column;gap:1rem;">
-        <input type="text" name="name" placeholder="Nombre" required style="padding:0.75rem;border-radius:4px;border:none;" />
-        <input type="email" name="email" placeholder="Email" required style="padding:0.75rem;border-radius:4px;border:none;" />
-        <textarea name="message" rows="5" placeholder="Mensaje" required style="padding:0.75rem;border-radius:4px;border:none;"></textarea>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nombre"
+          required
+          style="padding:0.75rem;border-radius:4px;border:none;"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          style="padding:0.75rem;border-radius:4px;border:none;"
+        />
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Mensaje"
+          required
+          style="padding:0.75rem;border-radius:4px;border:none;"></textarea>
         <button type="submit">Enviar</button>
       </div>
     </form>
-    <p style="text-align:center;margin-top:1.5rem;">O escr\u00edbenos por <a href="https://wa.me/" target="_blank" rel="noopener" style="color:var(--color-gold);">WhatsApp</a></p>
+    <p style="text-align:center;margin-top:1.5rem;">
+      O escríbenos por <a
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener"
+        style="color:var(--color-gold);">WhatsApp</a>
+    </p>
   </div>
 </section>
