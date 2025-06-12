@@ -1,19 +1,53 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
-<!DOCTYPE html>
-<html lang="es">
+
+<html lang="es" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Delfos Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@600&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <slot />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delfos Studio · Agencia Creativa</title>
+    <meta
+      name="description"
+      content="Agencia creativa de diseño web, branding, automatización y SEO. Convertimos ideas en experiencias digitales."
+    />
+    <meta
+      name="theme-color"
+      content="#192E38"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#EDDEDE"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Mejor SEO social -->
+    <meta property="og:title" content="Delfos Studio · Agencia Creativa" />
+    <meta
+      property="og:description"
+      content="Diseño web moderno, branding visual, automatización y SEO para marcas que piensan en el futuro."
+    />
+    <meta property="og:image" content="/assets/logos/delfos-logo-fondo-claro.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/assets/logos/delfos-logo-transparente.png" />
+  <body
+    class="bg-delfos-bg-dark text-delfos-bg-light dark:bg-delfos-bg-light dark:text-delfos-black font-sans-body min-h-screen flex flex-col transition-colors duration-500 motion-safe:transition-none"
+    data-theme="delfos"
+  >
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-gold text-delfos-bg-dark rounded px-4 py-2 z-50"
+    >
+      Saltar al contenido principal
+    </a>
+    <Header />
+    <main id="main" class="flex-1 flex flex-col">
+      <slot />
+    </main>
+    <Footer />
+    {/* Aquí podríamos sumar ThemeToggle, Analytics, IA Copilot, etc. */}
   </body>
 </html>

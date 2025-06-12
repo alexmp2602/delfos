@@ -1,38 +1,67 @@
 ---
+import IconWeb from "./icons/IconWeb.astro";
+import IconBranding from "./icons/IconBranding.astro";
+import IconAutomation from "./icons/IconAutomation.astro";
+import IconSEO from "./icons/IconSEO.astro";
+import IconContent from "./icons/IconContent.astro";
+
 const services = [
   {
-    title: "Landing Pro",
-    desc: "Una página de alto impacto para destacar tu producto o servicio.",
-    price: "ARS $150.000",
+    icon: IconWeb,
+    title: "Diseño Web Moderno",
+    desc: "Sitios visuales, responsivos y enfocados en experiencia de usuario.",
   },
   {
-    title: "Web Corporativa",
-    desc: "Sitio completo para mostrar tu negocio al mundo.",
-    price: "ARS $240.000",
+    icon: IconBranding,
+    title: "Branding Visual",
+    desc: "Identidad gráfica memorable, desde logotipo hasta paleta cromática.",
   },
   {
-    title: "Web Expandida",
-    desc: "Expande tu presencia online con funcionalidades a medida.",
-    price: "ARS $320.000",
+    icon: IconAutomation,
+    title: "Automatización",
+    desc: "Optimizá tareas y flujos para tu negocio con tecnología.",
+  },
+  {
+    icon: IconSEO,
+    title: "Posicionamiento SEO",
+    desc: "Mejoramos tu presencia y ranking en buscadores.",
+  },
+  {
+    icon: IconContent,
+    title: "Gestión de Contenido",
+    desc: "Organización y actualización ágil de tus contenidos digitales.",
   },
 ];
 ---
 
-<section id="services">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:2rem;">Servicios</h2>
-    <div
-      style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));"
+<section
+  id="servicios"
+  class="py-20 md:py-28 bg-delfos-bg-dark dark:bg-delfos-bg-light"
+>
+  <div class="max-w-6xl mx-auto px-4">
+    <h2
+      class="text-gold font-serif-title text-3xl md:text-4xl font-bold mb-14 text-center tracking-tight"
     >
+      Servicios
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
       {
-        services.map((service) => (
-          <div style="border:1px solid var(--color-gold);padding:1.5rem;border-radius:8px;background:var(--color-dark-alt);">
-            <h3 style="margin-top:0;">{service.title}</h3>
-            <p>{service.desc}</p>
-            <p style="font-weight:600;color:var(--color-gold);">
-              {service.price}
+        services.map(({ icon: Icon, title, desc }) => (
+          <article
+            class="group flex flex-col items-center bg-delfos-black/70 dark:bg-gold/10 rounded-3xl p-10 shadow-lg hover:shadow-gold-glow border border-transparent hover:border-gold transition-all duration-300
+          focus-within:ring-2 focus-within:ring-gold motion-safe:animate-fadein"
+            tabindex="0"
+          >
+            <div class="mb-5 transition-transform duration-300 group-hover:scale-110 group-focus:scale-110">
+              <Icon class="w-10 h-10 text-gold" />
+            </div>
+            <h3 class="font-serif-title text-xl text-gold mb-3 text-center">
+              {title}
+            </h3>
+            <p class="text-delfos-bg-light dark:text-delfos-black/80 text-center text-base">
+              {desc}
             </p>
-          </div>
+          </article>
         ))
       }
     </div>

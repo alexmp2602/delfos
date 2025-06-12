@@ -1,18 +1,27 @@
----
-
----
-
-<footer style="background:var(--color-dark);padding:2rem 1rem;">
-  <div
-    class="container"
-    style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;"
-  >
-    <p>Delfos Studio &copy; {new Date().getFullYear()}</p>
-    <div style="display:flex;gap:1rem;">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-        >Instagram</a
+<footer class="bg-delfos-bg-dark dark:bg-delfos-bg-light py-10 px-4 mt-auto">
+  <div class="max-w-4xl mx-auto flex flex-col items-center gap-3 text-center">
+    <p class="text-delfos-bg-light dark:text-delfos-black/80 text-sm">
+      Delfos Studio &copy; {new Date().getFullYear()}
+    </p>
+    <div class="flex gap-6 mt-1">
+      <a
+        href="https://instagram.com/delfosstudio"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        class="text-gold hover:text-gold/80 transition-colors duration-200"
       >
-      <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+        <!-- SVG Instagram -->
+      </a>
+      <a
+        href="https://wa.me/549XXXXXXXXXX"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp"
+        class="text-gold hover:text-gold/80 transition-colors duration-200"
+      >
+        <!-- SVG WhatsApp -->
+      </a>
     </div>
   </div>
 </footer>

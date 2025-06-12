@@ -1,22 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
+import Portfolio from "../components/Portfolio.astro";
 import WhyUs from "../components/WhyUs.astro";
-import Projects from "../components/Projects.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Pricing from "../components/Pricing.astro";
 import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout>
-  <Header />
-  <main>
-    <Hero />
-    <Services />
-    <WhyUs />
-    <Projects />
-    <Contact />
-  </main>
-  <Footer />
+  <Hero />
+  <Services />
+  <Portfolio />
+  <WhyUs />
+  <Testimonials />
+  <Pricing />
+  <Contact />
 </BaseLayout>

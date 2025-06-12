@@ -1,20 +1,53 @@
 ---
+import IconBolt from "./icons/IconBolt.astro";
+import IconBulb from "./icons/IconBulb.astro";
+import IconHandshake from "./icons/IconHandshake.astro";
+
 const benefits = [
-  { icon: "⚡", title: "Velocidad" },
-  { icon: "🎨", title: "Diseño estratégico" },
-  { icon: "🤝", title: "Atención personalizada" },
+  {
+    icon: IconBolt,
+    title: "Velocidad",
+    desc: "Optimizamos tiempos y procesos para que tu proyecto esté online antes que la competencia.",
+  },
+  {
+    icon: IconBulb,
+    title: "Diseño estratégico",
+    desc: "Creamos experiencias digitales a medida que potencian la identidad y los objetivos de tu marca.",
+  },
+  {
+    icon: IconHandshake,
+    title: "Atención personalizada",
+    desc: "Te acompañamos en cada etapa, escuchando y adaptándonos a tus necesidades y visión.",
+  },
 ];
 ---
 
-<section id="why" style="background:var(--color-dark-alt);">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:2rem;">¿Por qué elegirnos?</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+<section
+  id="why"
+  class="py-20 md:py-28 bg-delfos-black/95 dark:bg-delfos-bg-light/80 transition-colors duration-500"
+>
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h2 class="text-gold font-serif-title text-3xl md:text-4xl font-bold mb-6">
+      ¿Por qué elegir Delfos Studio?
+    </h2>
+    <p
+      class="text-base md:text-lg text-delfos-bg-light/80 dark:text-delfos-black/70 mb-12 max-w-2xl mx-auto"
+    >
+      Creamos soluciones digitales con creatividad, estrategia y cercanía.
+      Aceleramos tus resultados y potenciamos tu marca, acompañándote en cada
+      paso.
+    </p>
+    <div class="flex flex-wrap gap-8 justify-center">
       {
-        benefits.map((b) => (
-          <div style="flex:1 1 150px;text-align:center;">
-            <div style="font-size:2rem;">{b.icon}</div>
-            <p>{b.title}</p>
+        benefits.map(({ icon: Icon, title, desc }) => (
+          <div class="flex-1 min-w-[170px] max-w-xs bg-delfos-bg-dark/80 dark:bg-gold/10 rounded-2xl shadow hover:shadow-gold-glow p-8 flex flex-col items-center transition-all duration-300 group">
+            <Icon class="w-10 h-10 text-gold mb-3 group-hover:scale-110 transition-transform duration-200" />
+            <p class="text-lg md:text-xl font-semibold text-gold font-serif-title text-center mb-2">
+              {title}
+            </p>
+            <p class="text-delfos-bg-light/80 dark:text-delfos-black/70 text-base text-center">
+              {desc}
+            </p>
           </div>
         ))
       }

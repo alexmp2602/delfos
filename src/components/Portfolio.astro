@@ -1,0 +1,94 @@
+---
+const projects = [
+  {
+    img: "/assets/projects/gallinas.webp",
+    title: "Gallinas Libres",
+    desc: "Landing page para criadores avícolas independientes. Optimizada para mobile, performance y conversión.",
+    link: "https://gallinaslibres.com/",
+  },
+  {
+    img: "/assets/projects/domus.webp",
+    title: "Domus Estética",
+    desc: "Página institucional y blog para centro de estética. Identidad visual delicada y sistema de reservas sencillo.",
+    link: "https://www.esteticadomus.com/",
+  },
+  {
+    img: "/assets/projects/iabot.webp",
+    title: "IABOT",
+    desc: "Web para taller de robótica educativa. Presentación de cursos, inscripciones online y recursos para estudiantes.",
+    link: "https://iabot.ar/",
+  },
+  {
+    img: "/assets/projects/apri.webp",
+    title: "Cerrajería APRI",
+    desc: "Sitio institucional para cerrajería. Diseño claro y moderno, con contacto directo para urgencias en Mercedes y alrededores.",
+    link: "https://cerrajeriaapri.com.ar/",
+  },
+];
+---
+
+<section
+  id="portfolio"
+  class="py-20 md:py-28 bg-delfos-bg-light dark:bg-delfos-bg-dark transition-colors duration-500"
+>
+  <div class="max-w-6xl mx-auto px-4">
+    <h2
+      class="text-gold font-serif-title text-3xl md:text-4xl font-bold mb-14 text-center tracking-tight"
+    >
+      Portafolio
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      {
+        projects.map(({ img, title, desc, link }) => (
+          <div class="motion-safe:animate-fadein">
+            {link ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group block rounded-3xl overflow-hidden bg-white/80 dark:bg-delfos-black/70 shadow-lg hover:shadow-gold-glow border border-transparent hover:border-gold focus-visible:ring-2 focus-visible:ring-gold transition-all duration-300"
+                tabindex="0"
+              >
+                <div class="relative">
+                  <img
+                    src={img}
+                    alt={`Preview proyecto: ${title}`}
+                    class="w-full h-56 object-cover object-center transition-opacity duration-300 group-hover:opacity-80"
+                    loading="lazy"
+                  />
+                  {/* Overlay dorado en hover */}
+                  <div class="absolute inset-0 bg-gradient-to-br from-gold/0 via-gold/30 to-gold/60 opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none" />
+                </div>
+                <div class="p-6">
+                  <h3 class="font-serif-title text-xl text-gold mb-2 group-hover:underline">
+                    {title}
+                  </h3>
+                  <p class="text-delfos-black/80 dark:text-delfos-bg-light/80">
+                    {desc}
+                  </p>
+                </div>
+              </a>
+            ) : (
+              <div class="rounded-3xl overflow-hidden bg-white/80 dark:bg-delfos-black/70 shadow-lg border border-delfos-black/10 dark:border-gold/20">
+                <img
+                  src={img}
+                  alt={`Preview proyecto: ${title}`}
+                  class="w-full h-56 object-cover object-center"
+                  loading="lazy"
+                />
+                <div class="p-6">
+                  <h3 class="font-serif-title text-xl text-gold mb-2">
+                    {title}
+                  </h3>
+                  <p class="text-delfos-black/80 dark:text-delfos-bg-light/80">
+                    {desc}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+---
+const plans = [
+  {
+    name: "Landing Pro",
+    price: "$150.000",
+    desc: "Una sección larga, responsive, llamada a la acción y contacto.",
+    features: [
+      "Ideal para lanzar tu marca o servicio",
+      "Carga rápida y diseño profesional",
+      "Listo para publicar en 7 días",
+    ],
+  },
+  {
+    name: "Web Corporativa",
+    price: "$250.000",
+    desc: "3 a 5 secciones, responsive, formulario y SEO básico.",
+    features: [
+      "Página institucional moderna",
+      "Formularios de contacto",
+      "Optimización básica para buscadores",
+    ],
+    highlight: true, // Destaca este plan visualmente
+  },
+  {
+    name: "Tienda o Web Expandida",
+    price: "desde $300.000",
+    desc: "10+ secciones, blog, catálogo o ecommerce.",
+    features: [
+      "Catálogo de productos y/o blog",
+      "Integración de pasarela de pagos",
+      "Automatizaciones y funcionalidades avanzadas",
+    ],
+  },
+];
+---
+
+<section
+  id="precios"
+  class="py-20 md:py-28 bg-gradient-to-br from-delfos-bg-dark via-delfos-black/90 to-black dark:from-delfos-bg-light dark:via-gold/10 dark:to-delfos-bg-dark transition-colors duration-500"
+>
+  <div class="max-w-6xl mx-auto px-4">
+    <h2
+      class="text-gold font-serif-title text-3xl md:text-4xl font-bold mb-14 text-center"
+    >
+      Paquetes y precios
+    </h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-10 justify-center items-stretch"
+    >
+      {
+        plans.map(({ name, price, desc, features, highlight }) => (
+          <div
+            class={`relative bg-white/90 dark:bg-delfos-black/80 rounded-3xl shadow-xl border-2 p-10 flex flex-col items-center motion-safe:animate-fadein transition-all duration-300
+          ${
+            highlight
+              ? "border-gold shadow-gold-glow z-10 scale-105 md:-translate-y-4"
+              : "border-transparent hover:border-gold hover:shadow-gold-glow"
+          }
+          `}
+          >
+            {highlight && (
+              <span class="absolute -top-6 left-1/2 -translate-x-1/2 px-5 py-1 bg-gold text-delfos-bg-dark text-xs rounded-full font-bold shadow-lg tracking-wide select-none">
+                Más elegido
+              </span>
+            )}
+            <h3 class="font-serif-title text-2xl md:text-3xl text-gold font-bold mb-2 text-center">
+              {name}
+            </h3>
+            <div class="text-3xl md:text-4xl font-extrabold text-delfos-black dark:text-gold mb-3">
+              {price}
+            </div>
+            <p class="mb-6 text-center text-base">{desc}</p>
+            <ul class="mb-7 space-y-2 text-delfos-black/80 dark:text-delfos-bg-light/80 w-full text-sm">
+              {features.map((f) => (
+                <li class="flex items-center gap-2">
+                  <span class="text-gold text-lg">✔</span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#contacto"
+              class="block w-full text-center bg-gold text-delfos-bg-dark dark:text-delfos-bg-light py-2 rounded-xl font-semibold hover:scale-105 focus-visible:ring-2 ring-gold transition-all duration-300 shadow"
+            >
+              Solicitar presupuesto
+            </a>
+          </div>
+        ))
+      }
+    </div>
+    <p
+      class="text-center text-xs mt-12 text-delfos-bg-light/50 dark:text-delfos-black/50 max-w-xl mx-auto"
+    >
+      * Precios estimativos. Consultá por combos, mantenimiento o desarrollo a
+      medida.
+    </p>
+  </div>
+</section>

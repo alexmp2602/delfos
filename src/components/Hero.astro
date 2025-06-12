@@ -1,21 +1,75 @@
 ---
-
+/* Podemos editar slogan y descripción a gusto */
 ---
 
 <section
-  class="hero"
-  style="background:var(--color-dark-alt);text-align:center;"
+  class="relative flex flex-col items-center justify-center min-h-[75vh] py-20 px-4 bg-gradient-to-br from-delfos-bg-dark via-delfos-black/70 to-black/80 dark:from-delfos-bg-light dark:via-gold/10 dark:to-delfos-bg-dark overflow-hidden text-center"
 >
-  <div class="container">
-    <h1 style="font-size:2.5rem;margin-bottom:0.5rem;">
-      Convertimos ideas en experiencias digitales
-    </h1>
-    <p style="max-width:600px;margin:0 auto 2rem;">
-      Creamos sitios web que combinan estrategia, diseño y tecnología
-      para potenciar tu marca.
-    </p>
-    <a href="https://wa.me/" target="_blank" rel="noopener"
-      ><button>Hablemos</button></a
-    >
-  </div>
+  {/* Overlay visual dorado, tendencia editorial */}
+  <svg
+    aria-hidden="true"
+    width="620"
+    height="620"
+    class="absolute -top-32 -left-32 opacity-25 blur-2xl pointer-events-none select-none"
+  >
+    <circle cx="310" cy="310" r="270" fill="#C2A875"></circle>
+  </svg>
+  <img
+    src="/assets/logos/delfos-logo-transparente.png"
+    alt="Logo Delfos Studio"
+    class="w-32 md:w-40 mb-10 drop-shadow-2xl animate-fadein pointer-events-none select-none"
+    loading="lazy"
+    style="animation-delay:.05s"
+  />
+  <h1
+    class="font-serif-title text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight relative animate-fadein"
+    style="animation-delay:.2s"
+  >
+    Convertimos <span
+      class="text-gold relative after:absolute after:left-0 after:-bottom-2 after:w-full after:h-2 after:bg-gold/30 after:rounded-full after:animate-glow"
+      >ideas</span
+    > en <span class="text-gold">experiencias digitales</span>
+  </h1>
+  <p
+    class="max-w-2xl mx-auto text-lg md:text-2xl text-delfos-bg-light/90 dark:text-delfos-black/70 mb-10 animate-fadein"
+    style="animation-delay:.4s"
+  >
+    Agencia creativa de diseño web, branding visual, automatización, SEO y
+    gestión de contenido. Impulsamos marcas para el futuro.
+  </p>
+  <a
+    href="#contacto"
+    class="inline-block bg-gold/90 hover:bg-gold text-delfos-bg-dark dark:text-delfos-bg-light px-10 py-4 rounded-full font-semibold text-lg shadow-gold-glow hover:scale-105 focus-visible:ring-2 ring-gold transition-all duration-300 animate-fadein"
+    style="animation-delay:.6s"
+  >
+    Hablemos de tu proyecto
+  </a>
 </section>
+
+<style is:global>
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 8px 0 #c2a87599;
+    }
+    50% {
+      box-shadow: 0 0 24px 8px #c2a875bb;
+    }
+  }
+  .animate-fadein {
+    animation: fadein 0.8s cubic-bezier(0.5, 1.3, 0.5, 1.1) both;
+  }
+  .after\:animate-glow::after {
+    animation: glow 2.8s ease-in-out infinite;
+  }
+</style>
