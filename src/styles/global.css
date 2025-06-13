@@ -1,7 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
+/* --- RESET BÁSICO Y TIPOGRAFÍA --- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+body,
+.font-sans-body {
+  font-family: "Inter", "DM Sans", Arial, sans-serif;
+  background-color: #192e38; /* dark por defecto */
+  color: #eddede;
+}
+h1,
+.font-serif-title {
+  font-family: "Playfair Display", serif;
+}
+
+/* --- SCROLLBAR MODERNA Y BRANDING --- */
 ::-webkit-scrollbar {
   width: 10px;
   background: transparent;
@@ -9,26 +25,53 @@
 ::-webkit-scrollbar-thumb {
   background: #232220;
   border-radius: 8px;
+  transition: background 0.3s;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #c2a875;
 }
 
-/* 4. Fix temporal: aseguramos Playfair en h1 y .font-serif-title */
-h1,
-.font-serif-title {
-  font-family: "Playfair Display", serif !important;
+/* --- SELECCIÓN DE TEXTO CON BRANDING --- */
+::selection {
+  background: #c2a87566;
+  color: #232220;
+}
+::-moz-selection {
+  background: #c2a87566;
+  color: #232220;
 }
 
-/* 5. Fuente sans para body/textos normales (esto solo para debug, podés sacar si Tailwind lo aplica bien) */
-body,
-.font-sans-body {
-  font-family: "Inter", "DM Sans", sans-serif;
-}
-
-/* 6. Sombra dorada para logos, botones, elementos destacados */
+/* --- SOMBRAS Y CARDS MODERNAS --- */
 .shadow-gold-glow {
   box-shadow: 0 0 32px 4px #c2a87599;
 }
+.shadow-glass {
+  box-shadow: 0 8px 32px 0 #192e3850;
+  backdrop-filter: blur(16px) saturate(120%);
+  background: rgba(237, 222, 222, 0.24);
+  border: 1px solid #c2a87540;
+}
 
-/* 7. Animaciones globales: fadein y glow dorado */
+/* --- GLASSMORPHISM & OVERLAYS --- */
+.delfos-glass {
+  backdrop-filter: blur(16px) saturate(120%);
+  background: rgba(237, 222, 222, 0.18);
+  border: 1.5px solid #c2a87540;
+}
+.delfos-overlay-gold {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 45% at 70% 0%,
+    #c2a87533 0%,
+    transparent 80%
+  );
+  z-index: 0;
+  mix-blend-mode: soft-light;
+}
+
+/* --- ANIMACIONES --- */
 @keyframes fadein {
   from {
     opacity: 0;
@@ -42,6 +85,7 @@ body,
 .animate-fadein {
   animation: fadein 0.8s cubic-bezier(0.5, 1.3, 0.5, 1.1) both;
 }
+
 @keyframes glow {
   0%,
   100% {
@@ -51,6 +95,71 @@ body,
     box-shadow: 0 0 24px 12px #c2a875cc;
   }
 }
-.after\:animate-glow::after {
+.animate-glow {
   animation: glow 2.8s ease-in-out infinite;
 }
+
+@keyframes glassfade {
+  0% {
+    backdrop-filter: blur(0px) saturate(100%);
+    opacity: 0;
+  }
+  100% {
+    backdrop-filter: blur(16px) saturate(120%);
+    opacity: 1;
+  }
+}
+.animate-glassfade {
+  animation: glassfade 1.2s ease-out both;
+}
+
+/* --- UTILIDADES EXTRA 2026 --- */
+
+/* Bordes ultra redondeados para cards/editorial */
+.rounded-3xl {
+  border-radius: 2rem !important;
+}
+.rounded-4xl {
+  border-radius: 2.5rem !important;
+}
+
+/* Transición de colores global */
+.transition-colors {
+  transition: color 0.2s, background 0.4s;
+}
+
+/* Fix para overlays en dark/light mode */
+body.dark,
+.dark body {
+  background-color: #192e38;
+  color: #eddede;
+}
+body:not(.dark),
+.light body {
+  background-color: #eddede;
+  color: #232220;
+}
+
+/* --- SKIP LINK ACCESIBLE --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+
+/* --- OTROS: (puedes sumar más utilidades a medida que lo requieras) --- */
+
+/* Para que todo lo que no esté en el HTML, lo puedas invocar siempre desde el CSS global */
