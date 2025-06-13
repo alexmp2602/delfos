@@ -48,18 +48,20 @@ const plans = [
       class="grid grid-cols-1 md:grid-cols-3 gap-10 justify-center items-stretch"
     >
       {
-        plans.map(({ name, price, desc, features, highlight }) => (
+        plans.map(({ name, price, desc, features, highlight }, i) => (
           <div
-            class={`relative bg-white/90 dark:bg-delfos-black/80 rounded-3xl shadow-xl border-2 p-10 flex flex-col items-center motion-safe:animate-fadein transition-all duration-300
+            class={`relative bg-white/95 dark:bg-delfos-black/85 rounded-3xl border-2 p-10 flex flex-col items-center shadow-lg
+          transition-all duration-300 motion-safe:animate-fadein max-w-md mx-auto
           ${
             highlight
               ? "border-gold shadow-gold-glow z-10 scale-105 md:-translate-y-4"
-              : "border-transparent hover:border-gold hover:shadow-gold-glow"
-          }
-          `}
+              : "border-transparent hover:border-gold hover:shadow-gold-glow hover:scale-[1.03] focus-within:border-gold focus-within:shadow-gold-glow"
+          }`}
+            tabindex={0}
+            style={{ animationDelay: `${0.07 + i * 0.07}s` }}
           >
             {highlight && (
-              <span class="absolute -top-6 left-1/2 -translate-x-1/2 px-5 py-1 bg-gold text-delfos-bg-dark text-xs rounded-full font-bold shadow-lg tracking-wide select-none">
+              <span class="absolute -top-6 left-1/2 -translate-x-1/2 px-5 py-1 bg-gold text-delfos-bg-dark text-xs rounded-full font-bold shadow-lg tracking-wide select-none z-20">
                 Más elegido
               </span>
             )}
@@ -71,7 +73,7 @@ const plans = [
             </div>
             <p class="mb-6 text-center text-base">{desc}</p>
             <ul class="mb-7 space-y-2 text-delfos-black/80 dark:text-delfos-bg-light/80 w-full text-sm">
-              {features.map((f) => (
+              {features.map((f, j) => (
                 <li class="flex items-center gap-2">
                   <span class="text-gold text-lg">✔</span>
                   <span>{f}</span>
@@ -80,7 +82,8 @@ const plans = [
             </ul>
             <a
               href="#contacto"
-              class="block w-full text-center bg-gold text-delfos-bg-dark dark:text-delfos-bg-light py-2 rounded-xl font-semibold hover:scale-105 focus-visible:ring-2 ring-gold transition-all duration-300 shadow"
+              class="block w-full text-center bg-gold text-delfos-bg-dark dark:text-delfos-bg-light py-2 rounded-xl font-semibold hover:scale-105 focus-visible:ring-2 ring-gold transition-all duration-300 shadow focus:outline-none"
+              aria-label={`Solicitar presupuesto para ${name}`}
             >
               Solicitar presupuesto
             </a>
@@ -89,7 +92,7 @@ const plans = [
       }
     </div>
     <p
-      class="text-center text-xs mt-12 text-delfos-bg-light/50 dark:text-delfos-black/50 max-w-xl mx-auto"
+      class="text-center text-xs mt-12 text-delfos-bg-light/60 dark:text-delfos-black/50 max-w-xl mx-auto"
     >
       * Precios estimativos. Consultá por combos, mantenimiento o desarrollo a
       medida.

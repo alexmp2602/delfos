@@ -39,8 +39,12 @@ const benefits = [
     </p>
     <div class="flex flex-wrap gap-8 justify-center">
       {
-        benefits.map(({ icon: Icon, title, desc }) => (
-          <div class="flex-1 min-w-[170px] max-w-xs bg-delfos-bg-dark/80 dark:bg-gold/10 rounded-2xl shadow hover:shadow-gold-glow p-8 flex flex-col items-center transition-all duration-300 group">
+        benefits.map(({ icon: Icon, title, desc }, i) => (
+          <div
+            class="group flex-1 min-w-[170px] max-w-xs bg-delfos-bg-dark/80 dark:bg-gold/10 rounded-2xl shadow-lg hover:shadow-gold-glow p-8 flex flex-col items-center transition-all duration-300 focus-within:ring-2 focus-within:ring-gold outline-none"
+            tabindex={0}
+            style={{ animationDelay: `${0.05 + i * 0.06}s` }}
+          >
             <Icon class="w-10 h-10 text-gold mb-3 group-hover:scale-110 transition-transform duration-200" />
             <p class="text-lg md:text-xl font-semibold text-gold font-serif-title text-center mb-2">
               {title}

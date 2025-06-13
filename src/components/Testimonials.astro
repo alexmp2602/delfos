@@ -13,10 +13,9 @@ const testimonials = [
     text: "La web funciona perfecto. Siempre responden cuando los necesito. Se los recomendaría a cualquiera.",
   },
   {
-  name: "Franco Martínez · IABOT",
-  text: "Excelente laburo con la web. Gracias! Quedó perfecta ahora.",
-},
-
+    name: "Franco Martínez · IABOT",
+    text: "Excelente laburo con la web. Gracias! Quedó perfecta ahora.",
+  },
 ];
 ---
 
@@ -32,15 +31,20 @@ const testimonials = [
     </h2>
     <div class="grid gap-10 md:grid-cols-2">
       {
-        testimonials.map(({ name, text }) => (
-          <blockquote class="relative bg-white/80 dark:bg-delfos-black/80 p-10 rounded-3xl shadow-lg border border-transparent hover:shadow-gold-glow hover:border-gold transition-all duration-300 group motion-safe:animate-fadein">
-            <span class="absolute -top-7 left-7 text-gold text-5xl font-serif-title select-none opacity-60 group-hover:scale-110 transition-transform duration-200">
+        testimonials.map(({ name, text }, i) => (
+          <blockquote
+            class="relative bg-white/90 dark:bg-delfos-black/85 p-10 rounded-3xl shadow-lg border border-transparent hover:shadow-gold-glow hover:border-gold transition-all duration-300 group motion-safe:animate-fadein"
+            style={{ animationDelay: `${0.09 + i * 0.06}s` }}
+            tabindex={0}
+          >
+            {/* Comilla de apertura */}
+            <span class="absolute -top-8 left-8 text-gold text-6xl font-serif-title select-none opacity-60 group-hover:scale-110 transition-transform duration-200 leading-none pointer-events-none">
               “
             </span>
-            <p class="italic text-lg text-delfos-black/90 dark:text-delfos-bg-light/90 mb-6">
+            <p class="italic text-lg md:text-xl text-delfos-black/90 dark:text-delfos-bg-light/90 mb-6">
               {text}
             </p>
-            <div class="font-serif-title text-gold text-base font-semibold">
+            <div class="font-serif-title text-gold text-base font-semibold text-right">
               {name}
             </div>
           </blockquote>

@@ -36,7 +36,7 @@ const services = [
 
 <section
   id="servicios"
-  class="py-20 md:py-28 bg-delfos-bg-dark dark:bg-delfos-bg-light"
+  class="py-20 md:py-28 bg-delfos-bg-dark dark:bg-delfos-bg-light transition-colors duration-500"
 >
   <div class="max-w-6xl mx-auto px-4">
     <h2
@@ -48,17 +48,22 @@ const services = [
       {
         services.map(({ icon: Icon, title, desc }) => (
           <article
-            class="group flex flex-col items-center bg-delfos-black/70 dark:bg-gold/10 rounded-3xl p-10 shadow-lg hover:shadow-gold-glow border border-transparent hover:border-gold transition-all duration-300
-          focus-within:ring-2 focus-within:ring-gold motion-safe:animate-fadein"
-            tabindex="0"
+            class="group flex flex-col items-center rounded-3xl p-10
+              bg-delfos-black/70 dark:bg-gold/10 shadow-lg
+              border border-transparent hover:border-gold
+              transition-all duration-300 focus-within:ring-2 focus-within:ring-gold
+              hover:shadow-gold-glow motion-safe:animate-fadein
+              focus:outline-none"
+            tabindex={0}
+            aria-label={title}
           >
             <div class="mb-5 transition-transform duration-300 group-hover:scale-110 group-focus:scale-110">
-              <Icon class="w-10 h-10 text-gold" />
+              <Icon class="w-10 h-10 text-gold drop-shadow-gold-glow" />
             </div>
             <h3 class="font-serif-title text-xl text-gold mb-3 text-center">
               {title}
             </h3>
-            <p class="text-delfos-bg-light dark:text-delfos-black/80 text-center text-base">
+            <p class="text-base text-center font-sans-body text-delfos-bg-light dark:text-delfos-black/80">
               {desc}
             </p>
           </article>

@@ -2,8 +2,9 @@ import { useState, useEffect, useRef } from "react";
 
 export default function MobileMenu({ nav }) {
   const [open, setOpen] = useState(false);
-  const firstLinkRef = useRef();
+  const firstLinkRef = useRef(null);
 
+  // Evita scroll de fondo y da focus accesible al primer link
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -11,17 +12,28 @@ export default function MobileMenu({ nav }) {
     } else {
       document.body.style.overflow = "";
     }
+    // Limpiar al desmontar
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
+  // Cierra menú al apretar Escape
+  useEffect(() => {
+    if (!open) return;
+    const onEsc = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
+  }, [open]);
+
   return (
     <>
+      {/* Botón hamburguesa */}
       <button
         aria-label={open ? "Cerrar menú" : "Abrir menú"}
-        className="md:hidden ml-2 p-2 rounded focus:outline-none focus:ring-2 focus:ring-gold bg-white/10 shadow-gold-glow transition"
+        className="md:hidden ml-2 p-2 rounded-full bg-white/10 shadow-gold-glow focus:outline-none focus:ring-2 focus:ring-gold transition"
         onClick={() => setOpen((o) => !o)}
+        type="button"
       >
         <span className="sr-only">{open ? "Cerrar menú" : "Abrir menú"}</span>
         {open ? (
@@ -54,29 +66,31 @@ export default function MobileMenu({ nav }) {
           </svg>
         )}
       </button>
-      {/* Menú lateral glass, gold overlay y animación */}
+      {/* Menú lateral glass, overlay dorado */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300
-          ${
-            open
-              ? "translate-x-0 opacity-100 pointer-events-auto"
-              : "translate-x-full opacity-0 pointer-events-none"
-          }`}
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
+          open
+            ? "translate-x-0 opacity-100 pointer-events-auto"
+            : "translate-x-full opacity-0 pointer-events-none"
+        }`}
         style={{
           background: "rgba(25,46,56,0.94)",
           backdropFilter: "blur(16px) saturate(120%)",
           WebkitBackdropFilter: "blur(16px) saturate(120%)",
         }}
-        aria-modal={open ? "true" : undefined}
+        aria-modal="true"
+        role="dialog"
         aria-hidden={!open}
-        tabIndex={open ? 0 : -1}
+        tabIndex={-1}
       >
-        <div className="delfos-overlay-gold"></div>
+        <div className="delfos-overlay-gold" aria-hidden="true"></div>
+        {/* Botón de cierre extra arriba a la derecha */}
         <button
           aria-label="Cerrar menú"
           className="absolute top-5 right-6 p-2 rounded-full bg-gold/80 shadow-lg focus:outline-none focus:ring-2 focus:ring-gold transition z-50"
           onClick={() => setOpen(false)}
           tabIndex={open ? 0 : -1}
+          type="button"
         >
           <svg
             className="w-7 h-7 text-delfos-bg-dark"

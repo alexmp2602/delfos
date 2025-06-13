@@ -1,36 +1,64 @@
-// tailwind.config.mjs
 export default {
   darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        "serif-title": ['"Playfair Display"', "serif"],
-        "sans-body": ["Inter", '"DM Sans"', "sans-serif"],
-      },
       colors: {
         gold: "#C2A875",
-        "delfos-bg-dark": "#192E38",
-        "delfos-bg-light": "#EDDEDE",
+        "gold-80": "#c2a875cc",
+        "gold-60": "#c2a87599",
+        "gold-30": "#c2a8754d",
+        "delfos-bg-dark": "#192e38",
+        "delfos-bg-light": "#eddede",
         "delfos-black": "#232220",
-        // Opcionales para hover/efectos modernos
-        "gold-70": "#C2A875b3", // 70% opacity, para overlays
-        "delfos-accent": "#A67E43", // Para acentos, botones especiales, etc.
+        "delfos-accent": "#a67e43",
+      },
+      fontFamily: {
+        "serif-title": ["Playfair Display", "serif"],
+        "sans-body": ["Inter", "DM Sans", "Arial", "sans-serif"],
       },
       boxShadow: {
-        "gold-glow": "0 0 16px 2px #C2A87590", // Efecto soft-glow para logos y highlights
+        "gold-glow": "0 0 16px 2px #c2a87599",
+        glass: "0 8px 32px 0 #192e3850",
       },
-      // Animaciones y transiciones futuras
+      borderRadius: {
+        "3xl": "2rem",
+        "4xl": "2.5rem",
+      },
+      backgroundImage: {
+        "overlay-gold":
+          "radial-gradient(ellipse 70% 45% at 70% 0%, #c2a8754d 0%, transparent 80%)",
+      },
       transitionProperty: {
         size: "width, height",
+      },
+      keyframes: {
+        fadein: {
+          from: { opacity: "0", transform: "translateY(40px) scale(0.98)" },
+          to: { opacity: "1", transform: "none" },
+        },
+        glow: {
+          "0%,100%": { boxShadow: "0 0 8px 0 #c2a87577" },
+          "50%": { boxShadow: "0 0 24px 12px #c2a875cc" },
+        },
+        glassfade: {
+          "0%": { backdropFilter: "blur(0px) saturate(100%)", opacity: "0" },
+          "100%": { backdropFilter: "blur(16px) saturate(120%)", opacity: "1" },
+        },
+      },
+      animation: {
+        fadein: "fadein 0.8s cubic-bezier(0.5,1.3,0.5,1.1) both",
+        glow: "glow 2.8s ease-in-out infinite",
+        glassfade: "glassfade 1.2s ease-out both",
       },
     },
   },
   plugins: [
-    // Para tipografías más elegantes y legibles
     require("@tailwindcss/typography"),
-    // Para formularios estilizados
     require("@tailwindcss/forms"),
-    // Para clamping de texto (ej: títulos largos)
     require("@tailwindcss/line-clamp"),
+  ],
+  content: [
+    "./src/**/*.{astro,js,jsx,ts,tsx,mdx,md,svelte,vue}",
+    "./public/**/*.html",
   ],
 };

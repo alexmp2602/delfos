@@ -3,27 +3,37 @@ import ThemeToggle from "./ThemeToggle.jsx";
 import MobileMenu from "./MobileMenu.jsx";
 const nav = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Por qué elegirnos", href: "#beneficios" },
+  { label: "Por qué elegirnos", href: "#whyus" },
   { label: "Portafolio", href: "#portfolio" },
   { label: "Contacto", href: "#contacto" },
 ];
 ---
 
 <header
-  class="sticky top-0 z-30
-         bg-delfos-bg-light/85 dark:bg-delfos-bg-dark/90
+  class="sticky top-0 z-30 bg-delfos-bg-light-85 dark:bg-delfos-bg-dark-90
          backdrop-blur-xl border-b border-gold/20 shadow-gold-glow
          transition-all duration-500"
   aria-label="Navegación principal"
 >
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <a href="/" class="flex items-center gap-2 group focus:outline-none">
+      {/* Logo oscuro */}
       <img
-        src="/assets/logos/delfos-logo-transparente.png"
-        alt="Delfos Studio Logo"
-        class="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-gold-glow bg-white/60
-               transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl
-               motion-safe:hover:rotate-6"
+        src="/assets/logos/delfos-logo-fondo-oscuro.png"
+        alt="Delfos Studio Logo dark"
+        class="logo-dark w-10 h-10 md:w-12 md:h-12 rounded-full shadow-gold-glow bg-white/60
+           transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl
+           motion-safe:hover:rotate-6"
+        loading="lazy"
+        decoding="async"
+      />
+      {/* Logo claro */}
+      <img
+        src="/assets/logos/delfos-logo-azul-fondo-claro.png"
+        alt="Delfos Studio Logo light"
+        class="logo-light w-10 h-10 md:w-12 md:h-12 rounded-full shadow-gold-glow bg-white/60
+           transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl
+           motion-safe:hover:rotate-6"
         loading="lazy"
         decoding="async"
       />
@@ -35,22 +45,22 @@ const nav = [
     </a>
     {/* NAV DESKTOP */}
     <nav
-      class="hidden md:flex items-center gap-x-2 md:gap-x-4 font-sans-body text-base font-medium"
+      class="hidden md:flex items-center gap-2 md:gap-4 font-sans-body text-base font-medium"
       aria-label="Enlaces principales"
     >
       {
         nav.map(({ label, href }) => (
           <a
             href={href}
-            class="group relative px-4 py-2 rounded-lg
-             bg-transparent text-delfos-black dark:text-delfos-bg-light
-             hover:bg-gold/20 focus:bg-gold/30
-             hover:text-gold focus:text-gold
-             font-semibold tracking-wide transition-all duration-200 outline-none
-             after:content-[''] after:block after:absolute after:left-3 after:bottom-1 after:w-0 after:h-[2.5px]
-             after:bg-gold after:rounded-full after:transition-all after:duration-300
-             group-hover:after:w-4/5 group-focus:after:w-4/5
-             focus-visible:ring-2 focus-visible:ring-gold/50"
+            class="group relative px-4 py-2 rounded-lg bg-transparent
+                 text-delfos-black dark:text-delfos-bg-light
+                 hover:bg-gold/20 focus:bg-gold/40
+                 hover:text-gold focus:text-gold
+                 font-semibold tracking-wide transition-all duration-200 outline-none
+                 after:content-[''] after:block after:absolute after:left-3 after:bottom-1 after:w-0 after:h-[2.5px]
+                 after:bg-gold after:rounded-full after:transition-all after:duration-300
+                 group-hover:after:w-4/5 group-focus:after:w-4/5
+                 focus-visible:ring-2 focus-visible:ring-gold/50"
             tabindex="0"
           >
             {label}
@@ -58,8 +68,6 @@ const nav = [
         ))
       }
     </nav>
-
-    {/* TOGGLE TEMA + HAMBURGUESA */}
     <div class="flex items-center gap-2 md:gap-4">
       <ThemeToggle client:load />
       <MobileMenu nav={nav} client:load />

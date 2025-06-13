@@ -9,7 +9,7 @@
          overflow-hidden text-center"
   aria-label="Presentación Delfos Studio"
 >
-  {/* Overlay visual dorado, glassmorphism de tendencia */}
+  {/* Overlay dorado editorial */}
   <svg
     aria-hidden="true"
     width="620"
@@ -18,17 +18,28 @@
   >
     <circle cx="310" cy="310" r="270" fill="#C2A875"></circle>
   </svg>
-  {/* Overlay extra dorado, más sutil, para profundidad */}
   <div class="delfos-overlay-gold"></div>
+  {/* Logo para dark */}
   <img
     src="/assets/logos/delfos-logo-transparente-recortado.png"
-    alt="Logo Delfos Studio"
-    class="w-64 md:w-80 mb-10 drop-shadow-2xl animate-fadein pointer-events-none select-none"
+    alt="Logo Delfos Studio oscuro"
+    class="logo-dark w-64 md:w-80 mb-10 drop-shadow-2xl animate-fadein pointer-events-none select-none dark:inline-block light:hidden"
     loading="lazy"
-    style="animation-delay:.05s"
     width="320"
     height="320"
     decoding="async"
+    style="animation-delay:.05s"
+  />
+  {/* Logo para light */}
+  <img
+    src="/assets/logos/delfos-logo-azul-transparente-recortado.png"
+    alt="Logo Delfos Studio claro"
+    class="logo-light w-64 md:w-80 mb-10 drop-shadow-2xl animate-fadein pointer-events-none select-none dark:hidden light:inline-block"
+    loading="lazy"
+    width="320"
+    height="320"
+    decoding="async"
+    style="animation-delay:.05s"
   />
   <h1
     class="font-serif-title text-4xl md:text-6xl font-bold tracking-tight mb-7 leading-tight relative animate-fadein"
@@ -40,7 +51,7 @@
     > en <span class="text-gold">experiencias digitales</span>
   </h1>
   <p
-    class="max-w-2xl mx-auto text-lg md:text-2xl text-delfos-bg-light/90 dark:text-delfos-black/80 mb-10 animate-fadein"
+    class="max-w-2xl mx-auto text-lg md:text-2xl text-delfos-bg-light/90 dark:text-delfos-black/80 mb-10 animate-fadein font-sans-body"
     style="animation-delay:.4s"
   >
     Agencia creativa de diseño web, branding visual, automatización, SEO y
@@ -54,31 +65,3 @@
     Hablemos de tu proyecto
   </a>
 </section>
-
-<style is:global>
-  @keyframes fadein {
-    from {
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-  @keyframes glow {
-    0%,
-    100% {
-      box-shadow: 0 0 8px 0 #c2a87599;
-    }
-    50% {
-      box-shadow: 0 0 24px 8px #c2a875bb;
-    }
-  }
-  .animate-fadein {
-    animation: fadein 0.8s cubic-bezier(0.5, 1.3, 0.5, 1.1) both;
-  }
-  .after\:animate-glow::after {
-    animation: glow 2.8s ease-in-out infinite;
-  }
-</style>
