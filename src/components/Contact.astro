@@ -6,26 +6,31 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
 
 <section
   id="contacto"
-  class="py-20 md:py-28 text-center bg-delfos-bg-light dark:bg-delfos-bg-dark transition-colors duration-500"
+  class="px-6 py-24 text-center text-offwhite"
+  aria-labelledby="titulo-contacto"
 >
-  <h2 class="font-serif-title text-3xl md:text-4xl text-gold font-bold mb-6">
+  <h2
+    id="titulo-contacto"
+    class="text-3xl md:text-5xl font-deco text-gold mb-6"
+  >
     ¿Listo para potenciar tu marca?
   </h2>
-  <p
-    class="mb-8 text-lg text-delfos-black/90 dark:text-delfos-bg-light/80 max-w-xl mx-auto"
-  >
+
+  <p class="text-base sm:text-lg text-[#ddd] max-w-xl mx-auto mb-8">
     Contactanos y descubrí cómo podemos transformar tu presencia digital.
     Respondemos siempre en el día.
   </p>
+
   <a
     href="mailto:studiodelfos11@gmail.com"
-    class="inline-block bg-gold text-delfos-bg-dark dark:text-delfos-bg-light px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 focus-visible:ring-2 ring-gold transition-transform duration-300 mb-8 md:mb-4"
+    class="inline-block bg-[#192e38] hover:bg-gold hover:text-black text-white font-medium px-8 py-3 rounded-full transition mb-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
     aria-label="Enviar email a Delfos Studio"
   >
     Escribinos
   </a>
+
   <div
-    class="flex justify-center gap-5 md:gap-6 mt-6 md:mt-8"
+    class="flex justify-center gap-6 mb-6"
     role="navigation"
     aria-label="Redes sociales Delfos Studio"
   >
@@ -33,42 +38,35 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
       href="https://instagram.com/delfosstudio"
       target="_blank"
       rel="noopener noreferrer"
-      class="text-gold hover:text-gold-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold/60 rounded-full"
       aria-label="Instagram"
       title="Instagram"
+      class="text-offwhite hover:text-gold transition text-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
     >
-      <IconBrandInstagram
-        class="w-8 h-8 hover:scale-110 transition-transform duration-150"
-      />
+      <IconBrandInstagram class="w-6 h-6" />
     </a>
     <a
       href="https://linkedin.com/company/delfosstudio"
       target="_blank"
       rel="noopener noreferrer"
-      class="text-gold hover:text-gold-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold/60 rounded-full"
       aria-label="LinkedIn"
       title="LinkedIn"
+      class="text-offwhite hover:text-gold transition text-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
     >
-      <IconBrandLinkedin
-        class="w-8 h-8 hover:scale-110 transition-transform duration-150"
-      />
+      <IconBrandLinkedin class="w-6 h-6" />
     </a>
     <a
       href="https://wa.me/+5492324592391"
       target="_blank"
       rel="noopener noreferrer"
-      class="text-gold hover:text-gold-80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold/60 rounded-full"
       aria-label="WhatsApp"
       title="WhatsApp"
+      class="text-offwhite hover:text-gold transition text-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
     >
-      <IconBrandWhatsapp
-        class="w-8 h-8 hover:scale-110 transition-transform duration-150"
-      />
+      <IconBrandWhatsapp class="w-6 h-6" />
     </a>
   </div>
-  <p
-    class="text-xs mt-10 text-delfos-black/40 dark:text-delfos-bg-light/50 max-w-md mx-auto"
-  >
+
+  <p class="text-sm text-[#888] max-w-md mx-auto">
     También podés encontrarnos en redes sociales o agendar una videollamada
     cuando quieras.
   </p>

@@ -21,32 +21,29 @@ const testimonials = [
 
 <section
   id="testimonios"
-  class="py-20 md:py-28 bg-delfos-bg-dark dark:bg-delfos-bg-light transition-colors duration-500"
+  class="px-6 py-24 text-offwhite"
+  aria-labelledby="titulo-testimonios"
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-4xl mx-auto">
     <h2
-      class="font-serif-title text-3xl md:text-4xl text-gold font-bold mb-12 text-center"
+      id="titulo-testimonios"
+      class="text-3xl md:text-5xl font-deco text-gold text-center mb-12"
     >
       Testimonios
     </h2>
-    <div class="grid gap-10 md:grid-cols-2">
+
+    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2">
       {
         testimonials.map(({ name, text }, i) => (
           <blockquote
-            class="relative bg-white/90 dark:bg-delfos-black/85 p-10 rounded-3xl shadow-lg border border-transparent hover:shadow-gold-glow hover:border-gold transition-all duration-300 group motion-safe:animate-fadein"
-            style={{ animationDelay: `${0.09 + i * 0.06}s` }}
+            class="relative p-6 bg-[#1a1a1a] rounded-xl shadow-md animate-fadein transition-transform duration-300 hover:scale-[1.01] hover:shadow-gold-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             tabindex={0}
+            style={{ animationDelay: `${0.09 + i * 0.06}s` }}
           >
-            {/* Comilla de apertura */}
-            <span class="absolute -top-8 left-8 text-gold text-6xl font-serif-title select-none opacity-60 group-hover:scale-110 transition-transform duration-200 leading-none pointer-events-none">
-              “
-            </span>
-            <p class="italic text-lg md:text-xl text-delfos-black/90 dark:text-delfos-bg-light/90 mb-6">
+            <p class="text-base text-[#ddd] leading-relaxed mb-4 before:content-['“'] before:text-gold before:text-4xl before:leading-none before:align-top">
               {text}
             </p>
-            <div class="font-serif-title text-gold text-base font-semibold text-right">
-              {name}
-            </div>
+            <footer class="mt-2 text-sm text-gold font-medium">{name}</footer>
           </blockquote>
         ))
       }

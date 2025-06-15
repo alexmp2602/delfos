@@ -1,6 +1,7 @@
 ---
-import ThemeToggle from "./ThemeToggle.jsx";
-import MobileMenu from "./MobileMenu.jsx";
+// Modo oscuro permanente, sin ThemeToggle
+import MobileMenu from "./MobileMenu.astro";
+
 const nav = [
   { label: "Servicios", href: "#servicios" },
   { label: "Por qué elegirnos", href: "#whyus" },
@@ -10,66 +11,51 @@ const nav = [
 ---
 
 <header
-  class="sticky top-0 z-30 bg-delfos-bg-light-85 dark:bg-delfos-bg-dark-90
-         backdrop-blur-xl border-b border-gold/20 shadow-gold-glow
-         transition-all duration-500"
+  class="sticky top-0 z-30 bg-[#0f1113]/80 backdrop-blur-md shadow-md"
   aria-label="Navegación principal"
 >
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 group focus:outline-none">
-      {/* Logo oscuro */}
+  <div
+    class="max-w-7xl mx-auto flex items-center justify-between py-5 px-4 md:py-6 md:px-8"
+  >
+    <!-- Logo + marca -->
+    <a
+      href="/"
+      class="flex items-center gap-4 group"
+      aria-label="Inicio - Delfos Studio"
+    >
       <img
-        src="/assets/logos/delfos-logo-fondo-oscuro.png"
-        alt="Delfos Studio Logo dark"
-        class="logo-dark w-10 h-10 md:w-12 md:h-12 rounded-full shadow-gold-glow bg-white/60
-           transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl
-           motion-safe:hover:rotate-6"
-        loading="lazy"
-        decoding="async"
-      />
-      {/* Logo claro */}
-      <img
-        src="/assets/logos/delfos-logo-azul-fondo-claro.png"
-        alt="Delfos Studio Logo light"
-        class="logo-light w-10 h-10 md:w-12 md:h-12 rounded-full shadow-gold-glow bg-white/60
-           transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl
-           motion-safe:hover:rotate-6"
+        src="/assets/logos/delfos-logo-transparente-recortado.png"
+        alt="Logo Delfos Studio"
+        class="w-12 md:w-16 aspect-square object-contain"
         loading="lazy"
         decoding="async"
       />
       <span
-        class="hidden md:inline font-serif-title text-xl tracking-tight text-gold drop-shadow-gold-glow ml-2 animate-fadein"
+        class="text-xl md:text-2xl font-deco font-semibold tracking-wide text-offwhite"
       >
         Delfos Studio
       </span>
     </a>
-    {/* NAV DESKTOP */}
+
+    <!-- Navegación escritorio -->
     <nav
-      class="hidden md:flex items-center gap-2 md:gap-4 font-sans-body text-base font-medium"
+      class="hidden md:flex items-center gap-8"
       aria-label="Enlaces principales"
     >
       {
         nav.map(({ label, href }) => (
           <a
             href={href}
-            class="group relative px-4 py-2 rounded-lg bg-transparent
-                 text-delfos-black dark:text-delfos-bg-light
-                 hover:bg-gold/20 focus:bg-gold/40
-                 hover:text-gold focus:text-gold
-                 font-semibold tracking-wide transition-all duration-200 outline-none
-                 after:content-[''] after:block after:absolute after:left-3 after:bottom-1 after:w-0 after:h-[2.5px]
-                 after:bg-gold after:rounded-full after:transition-all after:duration-300
-                 group-hover:after:w-4/5 group-focus:after:w-4/5
-                 focus-visible:ring-2 focus-visible:ring-gold/50"
-            tabindex="0"
+            class="text-base md:text-lg font-medium text-offwhite hover:text-gold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             {label}
           </a>
         ))
       }
     </nav>
-    <div class="flex items-center gap-2 md:gap-4">
-      <ThemeToggle client:load />
+
+    <!-- Menú móvil -->
+    <div class="flex items-center gap-3 md:gap-4">
       <MobileMenu nav={nav} client:load />
     </div>
   </div>

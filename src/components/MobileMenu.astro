@@ -1,0 +1,113 @@
+---
+// Iconos
+import IconMenu from "./icons/IconMenu.astro";
+import IconX from "./icons/IconX.astro";
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+const { nav } = Astro.props as { nav: NavItem[] };
+---
+
+<!-- Botón hamburguesa -->
+<button
+  id="mobile-menu-toggle"
+  type="button"
+  aria-haspopup="dialog"
+  aria-controls="mobile-menu-overlay"
+  aria-expanded="false"
+  aria-label="Abrir menú"
+  class="md:hidden text-offwhite hover:text-gold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+>
+  <IconMenu size={28} />
+</button>
+
+<!-- Menú móvil -->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 z-50 hidden flex-col justify-between h-screen overflow-hidden bg-[#0f1113]/95 backdrop-blur-md text-offwhite transition-all px-8 py-10"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="mobile-menu-toggle"
+  aria-hidden="true"
+  tabindex="-1"
+>
+  <!-- Header del menú -->
+  <div class="flex justify-between items-center mb-10">
+    <h2 class="text-lg font-semibold tracking-wide uppercase">Menú</h2>
+    <button
+      id="mobile-menu-close"
+      type="button"
+      aria-label="Cerrar menú"
+      class="text-offwhite hover:text-gold transition text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+    >
+      <IconX size={28} />
+    </button>
+  </div>
+
+  <!-- Navegación -->
+  <nav class="flex flex-col gap-6 text-xl" role="navigation" aria-label="Enlaces del menú móvil">
+    {
+      nav.map(({ label, href }) => (
+        <a
+          href={href}
+          class="hover:text-gold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          onclick="closeMobileMenu()"
+        >
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <!-- Footer del menú -->
+  <div class="mt-16 flex justify-center opacity-20 pointer-events-none select-none">
+    <img
+      src="/assets/logos/delfos-logo-transparente.png"
+      alt="Logo Delfos Studio"
+      class="w-16 h-16"
+      loading="lazy"
+    />
+  </div>
+</div>
+
+<script is:inline>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const close = document.getElementById("mobile-menu-close");
+
+  const openMobileMenu = () => {
+    overlay.classList.remove("hidden");
+    overlay.classList.add("flex");
+    overlay.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+
+    // Bloquear scroll en body
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("menu-open");
+
+    overlay.querySelector("a")?.focus();
+  };
+
+  window.closeMobileMenu = () => {
+    overlay.classList.add("hidden");
+    overlay.classList.remove("flex");
+    overlay.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+
+    document.body.style.overflow = "";
+    document.body.classList.remove("menu-open");
+
+    toggle.focus();
+  };
+
+  toggle.addEventListener("click", openMobileMenu);
+  close.addEventListener("click", closeMobileMenu);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
+      closeMobileMenu();
+    }
+  });
+</script>

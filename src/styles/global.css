@@ -1,72 +1,94 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
-/* Reset y tipografía básica */
+:root {
+  --gold: #c2a875;
+  --blue-dark: #192e38;
+  --charcoal: #232220;
+  --offwhite: #ededed;
+
+  --shadow-gold-glow: 0 0 12px #c2a87599;
+  --transition-default: all 0.2s ease-in-out;
+
+  --font-primary: "DM Sans", sans-serif;
+  --font-alt: "Inter", sans-serif;
+  --font-deco: "Playfair Display", serif;
+
+  color-scheme: dark;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Layout base === */
 html {
+  background-color: #0f1113;
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+
 body {
-  font-family: "Inter", "DM Sans", Arial, sans-serif;
+  color: var(--offwhite);
+  font-family: var(--font-primary);
+  transition: var(--transition-default);
+  line-height: 1.6;
 }
 
-/* Scrollbar moderna */
-::-webkit-scrollbar {
-  width: 10px;
-  background: transparent;
+/* === Utilidades de color === */
+.text-gold {
+  color: var(--gold);
 }
-::-webkit-scrollbar-thumb {
-  background: #232220;
-  border-radius: 8px;
-  transition: background 0.3s;
-}
-html.dark ::-webkit-scrollbar-thumb {
-  background: #c2a875;
+.bg-gold {
+  background-color: var(--gold);
 }
 
-/* Selección de texto */
-::selection,
-::-moz-selection {
-  background: #c2a87599;
-  color: #232220;
+/* === Sombra personalizada === */
+.shadow-gold-glow {
+  box-shadow: var(--shadow-gold-glow);
 }
 
-/* Skip link accesible */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+/* === Animaciones === */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.focus\:not-sr-only:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
+.animate-fadein {
+  animation: fade-in-up 0.8s ease forwards;
+  will-change: opacity, transform;
 }
 
-/* Logo dark/light*/
-.logo-dark {
-  display: inline-block;
+/* === Accesibilidad === */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
-.logo-light {
-  display: none;
+
+/* === Tipografías alternas === */
+.font-primary {
+  font-family: var(--font-primary);
 }
-html.dark .logo-dark {
-  display: inline-block !important;
+.font-alt {
+  font-family: var(--font-alt);
 }
-html.dark .logo-light {
-  display: none !important;
+.font-deco {
+  font-family: var(--font-deco);
 }
-html:not(.dark) .logo-dark {
-  display: none !important;
+
+/* === Contenedor (opcional) === */
+.container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-html:not(.dark) .logo-light {
-  display: inline-block !important;
+
+/* === Header y navegación === */
+body.menu-open {
+  position: fixed;
+  width: 100%;
 }

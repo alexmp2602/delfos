@@ -1,29 +1,23 @@
 ---
-import "../styles/global.css";
-import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="es" class="scroll-smooth antialiased" data-theme="delfos">
+<html lang="es" class="scroll-smooth antialiased">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delfos Studio · Agencia Creativa</title>
+
     <meta
       name="description"
       content="Agencia creativa de diseño web, branding, automatización y SEO. Convertimos ideas en experiencias digitales."
     />
-    <meta
-      name="theme-color"
-      content="#192E38"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta
-      name="theme-color"
-      content="#EDDEDE"
-      media="(prefers-color-scheme: light)"
-    />
-    <!-- SEO social -->
+
+    <!-- Theme-color para navegador -->
+    <meta name="theme-color" content="#0f1113" />
+
+    <!-- SEO Social -->
     <meta property="og:title" content="Delfos Studio · Agencia Creativa" />
     <meta
       property="og:description"
@@ -31,41 +25,53 @@ import Header from "../components/Header.astro";
     />
     <meta
       property="og:image"
-      content="/assets/logos/delfos-logo-fondo-claro.webp"
+      content="/assets/logos/delfos-logo-fondo-oscuro.png"
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/assets/logos/delfos-logo-transparente.png" />
-    <!-- Fuentes recomendadas -->
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/assets/logos/delfos-logo-transparente.png"
+      type="image/png"
+    />
+
+    <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link rel="manifest" href="/manifest.json" />
+
   </head>
+
   <body
-    class="relative font-sans-body bg-delfos-bg-dark text-delfos-bg-light dark:bg-delfos-bg-light dark:text-delfos-black min-h-screen flex flex-col transition-colors duration-500 motion-safe:transition-none"
+    class="relative bg-[#0f1113] text-[#ededed] font-primary min-h-screen flex flex-col transition-colors duration-300"
   >
-    <!-- Overlay dorado suave -->
+    <!-- Overlay editorial dorado -->
     <div
       aria-hidden="true"
       class="pointer-events-none fixed inset-0 z-0"
       style="background: radial-gradient(ellipse 100% 60% at 70% 10%, #C2A87522 0%, transparent 70%);"
     >
     </div>
-    <!-- Skip link accesible -->
+
+    <!-- Skip to main content -->
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-gold text-delfos-bg-dark rounded px-4 py-2 z-50 shadow-lg"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-gold text-[#0f1113] rounded px-4 py-2 z-50 shadow-lg"
     >
       Saltar al contenido principal
     </a>
+
     <Header />
-    <main id="main" class="flex-1 flex flex-col relative z-10">
+
+    <main id="main" class="flex-1 relative z-10">
       <slot />
     </main>
-    {/* <Footer /> */}
-    {/* Placeholders: ThemeToggle, Analytics, Copilot */}
+    <Footer />
   </body>
 </html>

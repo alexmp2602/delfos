@@ -1,0 +1,16 @@
+{
+    "name": "Delfos Studio",
+    "short_name": "Delfos",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f1113",
+    "theme_color": "#c2a875",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/assets/logos/delfos-logo-transparente.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

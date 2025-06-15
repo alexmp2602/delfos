@@ -1,67 +1,55 @@
----
-
----
-
 <section
-  class="relative flex flex-col items-center justify-center min-h-[75vh] py-20 px-4
-         bg-gradient-to-br from-delfos-bg-dark via-delfos-black/80 to-black/90
-         dark:from-delfos-bg-light dark:via-gold/10 dark:to-delfos-bg-dark
-         overflow-hidden text-center"
+  class="relative flex flex-col items-center justify-center text-center px-6 py-28 md:py-36 max-w-6xl mx-auto"
   aria-label="Presentación Delfos Studio"
 >
-  {/* Overlay dorado editorial */}
+  <!-- Glow dorado editorial -->
   <svg
     aria-hidden="true"
     width="620"
     height="620"
-    class="absolute -top-32 -left-32 opacity-20 blur-3xl pointer-events-none select-none"
+    class="absolute -z-10 blur-[120px] opacity-25"
+    style="top: 0; left: 50%; transform: translateX(-50%)"
   >
     <circle cx="310" cy="310" r="270" fill="#C2A875"></circle>
   </svg>
-  <div class="delfos-overlay-gold"></div>
-  {/* Logo para dark */}
+
+  <!-- Logo principal -->
   <img
     src="/assets/logos/delfos-logo-transparente-recortado.png"
-    alt="Logo Delfos Studio oscuro"
-    class="logo-dark w-64 md:w-80 mb-10 drop-shadow-2xl animate-fadein pointer-events-none select-none dark:inline-block light:hidden"
-    loading="lazy"
+    alt="Logo Delfos Studio"
+    class="w-60 sm:w-72 md:w-80 animate-fadein"
+    style="animation-delay: 0.05s"
     width="320"
     height="320"
-    decoding="async"
-    style="animation-delay:.05s"
-  />
-  {/* Logo para light */}
-  <img
-    src="/assets/logos/delfos-logo-azul-transparente-recortado.png"
-    alt="Logo Delfos Studio claro"
-    class="logo-light w-64 md:w-80 mb-10 drop-shadow-2xl animate-fadein pointer-events-none select-none dark:hidden light:inline-block"
     loading="lazy"
-    width="320"
-    height="320"
     decoding="async"
-    style="animation-delay:.05s"
   />
+
+  <!-- Título -->
   <h1
-    class="font-serif-title text-4xl md:text-6xl font-bold tracking-tight mb-7 leading-tight relative animate-fadein"
-    style="animation-delay:.2s"
+    class="mt-10 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-offwhite animate-fadein"
+    style="animation-delay: 0.2s"
   >
-    Convertimos <span
-      class="text-gold relative after:absolute after:left-0 after:-bottom-2 after:w-full after:h-2 after:bg-gold/30 after:rounded-full after:animate-glow"
-      >ideas</span
-    > en <span class="text-gold">experiencias digitales</span>
+    Diseñamos <span class="text-gold">marcas</span> que inspiran<br />
+    y <span class="text-gold">experiencias digitales</span> que conectan.
   </h1>
+
+  <!-- Descripción -->
   <p
-    class="max-w-2xl mx-auto text-lg md:text-2xl text-delfos-bg-light/90 dark:text-delfos-black/80 mb-10 animate-fadein font-sans-body"
-    style="animation-delay:.4s"
+    class="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-[#ddd] animate-fadein"
+    style="animation-delay: 0.4s"
   >
-    Agencia creativa de diseño web, branding visual, automatización, SEO y
-    gestión de contenido. Impulsamos marcas para el futuro.
+    En Delfos Studio unimos diseño visual, desarrollo web, contenido y
+    automatización para crear marcas preparadas para el futuro.
   </p>
+
+  <!-- CTA -->
   <a
     href="#contacto"
-    class="inline-block bg-gold/90 hover:bg-gold text-delfos-bg-dark dark:text-delfos-bg-light px-10 py-4 rounded-full font-semibold text-lg shadow-gold-glow hover:scale-105 focus-visible:ring-2 ring-gold transition-all duration-300 animate-fadein focus:outline-none delfos-glass"
-    style="animation-delay:.6s"
+    class="group mt-10 inline-flex items-center justify-center gap-2 bg-[#192e38] text-white font-medium text-base sm:text-lg px-6 py-3 rounded-lg transition hover:bg-gold hover:text-black animate-fadein focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+    style="animation-delay: 0.6s"
   >
     Hablemos de tu proyecto
+    <span class="transition-transform group-hover:translate-x-1">→</span>
   </a>
 </section>

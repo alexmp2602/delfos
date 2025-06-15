@@ -24,35 +24,37 @@ const benefits = [
 
 <section
   id="whyus"
-  class="py-20 md:py-28 bg-delfos-black/95 dark:bg-delfos-bg-light/80 transition-colors duration-500"
+  class="px-6 py-24 text-offwhite transition-soft"
+  aria-labelledby="titulo-whyus"
 >
-  <div class="max-w-3xl mx-auto px-4 text-center">
-    <h2 class="text-gold font-serif-title text-3xl md:text-4xl font-bold mb-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 id="titulo-whyus" class="text-3xl md:text-5xl font-deco text-gold mb-6">
       ¿Por qué elegir Delfos Studio?
     </h2>
-    <p
-      class="text-base md:text-lg text-delfos-bg-light/80 dark:text-delfos-black/70 mb-12 max-w-2xl mx-auto"
-    >
+
+    <p class="text-base sm:text-lg text-[#ededed] max-w-2xl mx-auto mb-14">
       Creamos soluciones digitales con creatividad, estrategia y cercanía.
       Aceleramos tus resultados y potenciamos tu marca, acompañándote en cada
       paso.
     </p>
-    <div class="flex flex-wrap gap-8 justify-center">
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       {
         benefits.map(({ icon: Icon, title, desc }, i) => (
-          <div
-            class="group flex-1 min-w-[170px] max-w-xs bg-delfos-bg-dark/80 dark:bg-gold/10 rounded-2xl shadow-lg hover:shadow-gold-glow p-8 flex flex-col items-center transition-all duration-300 focus-within:ring-2 focus-within:ring-gold outline-none"
-            tabindex={0}
+          <article
+            class="p-6 bg-[#1a1a1a] rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-gold-glow animate-fadein outline-none focus-within:ring-2 focus-within:ring-gold"
             style={{ animationDelay: `${0.05 + i * 0.06}s` }}
+            tabindex={0}
+            aria-label={title}
           >
-            <Icon class="w-10 h-10 text-gold mb-3 group-hover:scale-110 transition-transform duration-200" />
-            <p class="text-lg md:text-xl font-semibold text-gold font-serif-title text-center mb-2">
+            <div class="mb-4 text-gold flex justify-center">
+              <Icon class="w-10 h-10" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-gold transition-colors">
               {title}
-            </p>
-            <p class="text-delfos-bg-light/80 dark:text-delfos-black/70 text-base text-center">
-              {desc}
-            </p>
-          </div>
+            </h3>
+            <p class="text-sm text-[#dcdcdc]">{desc}</p>
+          </article>
         ))
       }
     </div>
