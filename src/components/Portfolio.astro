@@ -29,7 +29,7 @@ const projects = [
 
 <section
   id="portfolio"
-  class="px-6 py-24 text-offwhite relative"
+  class="scroll-offset px-6 py-24 text-offwhite relative"
   aria-labelledby="titulo-portfolio"
 >
   <div class="max-w-6xl mx-auto">
@@ -40,7 +40,7 @@ const projects = [
       Portafolio
     </h2>
 
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+    <div class="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
       {
         projects.map(({ img, title, desc, link }, i) => (
           <div
@@ -53,25 +53,25 @@ const projects = [
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Ver proyecto ${title}`}
-                class="block rounded-xl overflow-hidden bg-[#1a1a1a] hover:shadow-gold-glow transition-transform duration-300 hover:scale-[1.015] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                class="group block rounded-xl overflow-hidden bg-[#1a1a1a] transition-transform duration-300 hover:scale-[1.015] hover:shadow-gold-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 tabindex={0}
               >
                 <div class="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={img}
                     alt={`Preview proyecto: ${title}`}
-                    class="w-full h-full object-cover transition-opacity duration-300 ease-in-out hover:opacity-80"
+                    class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80"
                     loading="lazy"
                   />
                 </div>
                 <div class="p-5">
                   <h3 class="text-xl font-semibold text-gold mb-2">{title}</h3>
-                  <p class="text-sm text-[#ddd]">{desc}</p>
+                  <p class="text-sm text-[#ddd] leading-relaxed">{desc}</p>
                 </div>
               </a>
             ) : (
               <div
-                class="block rounded-xl bg-[#1a1a1a] p-5 opacity-60 cursor-not-allowed"
+                class="block rounded-xl bg-[#1a1a1a] p-5 opacity-60 cursor-not-allowed shadow-inner"
                 tabindex={0}
                 aria-label={`Preview proyecto: ${title}`}
               >
@@ -79,12 +79,12 @@ const projects = [
                   <img
                     src={img}
                     alt={`Preview proyecto: ${title}`}
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover grayscale contrast-75"
                     loading="lazy"
                   />
                 </div>
                 <h3 class="text-xl font-semibold text-gold mb-2">{title}</h3>
-                <p class="text-sm text-[#aaa]">{desc}</p>
+                <p class="text-sm text-[#aaa] leading-relaxed">{desc}</p>
               </div>
             )}
           </div>

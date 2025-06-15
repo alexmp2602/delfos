@@ -24,7 +24,7 @@ const benefits = [
 
 <section
   id="whyus"
-  class="px-6 py-24 text-offwhite transition-soft"
+  class="scroll-offset px-6 py-24 text-offwhite transition-soft"
   aria-labelledby="titulo-whyus"
 >
   <div class="max-w-6xl mx-auto text-center">
@@ -32,7 +32,9 @@ const benefits = [
       ¿Por qué elegir Delfos Studio?
     </h2>
 
-    <p class="text-base sm:text-lg text-[#ededed] max-w-2xl mx-auto mb-14">
+    <p
+      class="text-base sm:text-lg text-[#ededed] max-w-2xl mx-auto mb-14 leading-relaxed"
+    >
       Creamos soluciones digitales con creatividad, estrategia y cercanía.
       Aceleramos tus resultados y potenciamos tu marca, acompañándote en cada
       paso.
@@ -42,8 +44,8 @@ const benefits = [
       {
         benefits.map(({ icon: Icon, title, desc }, i) => (
           <article
-            class="p-6 bg-[#1a1a1a] rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-gold-glow animate-fadein outline-none focus-within:ring-2 focus-within:ring-gold"
-            style={{ animationDelay: `${0.05 + i * 0.06}s` }}
+            class="group p-6 bg-[#1a1a1a] rounded-xl text-center shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-gold-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-gold animate-fadein"
+            style={`animation-delay: ${0.05 + i * 0.06}s`}
             tabindex={0}
             aria-label={title}
           >
@@ -53,7 +55,7 @@ const benefits = [
             <h3 class="text-xl font-semibold mb-2 group-hover:text-gold transition-colors">
               {title}
             </h3>
-            <p class="text-sm text-[#dcdcdc]">{desc}</p>
+            <p class="text-sm text-[#dcdcdc] leading-relaxed">{desc}</p>
           </article>
         ))
       }

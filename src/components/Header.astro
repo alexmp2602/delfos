@@ -1,11 +1,11 @@
 ---
-// Modo oscuro permanente, sin ThemeToggle
-import MobileMenu from "./MobileMenu.astro";
+import MobileMenu from "./MobileMenu.jsx";
 
 const nav = [
+  { label: "Inicio", href: "/" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Por qué elegirnos", href: "#whyus" },
   { label: "Portafolio", href: "#portfolio" },
+  { label: "Precios", href: "#precios" },
   { label: "Contacto", href: "#contacto" },
 ];
 ---
@@ -31,7 +31,7 @@ const nav = [
         decoding="async"
       />
       <span
-        class="text-xl md:text-2xl font-deco font-semibold tracking-wide text-offwhite"
+        class="hidden sm:inline-block text-xl md:text-2xl font-deco font-semibold tracking-wide text-offwhite"
       >
         Delfos Studio
       </span>

@@ -1,0 +1,79 @@
+---
+import IconHelp from "./icons/IconHelp.astro";
+
+const faqs = [
+  {
+    question: "¿Qué necesito para empezar?",
+    answer:
+      "Solo una idea general de tu proyecto. Nosotros te guiamos con lo demás: diseño, contenido y objetivos.",
+  },
+  {
+    question: "¿Puedo pedir más secciones después?",
+    answer:
+      "Sí, todos los sitios están pensados para escalar. Podemos agregar secciones, blog o tienda cuando lo necesites.",
+  },
+  {
+    question: "¿Incluyen dominio y hosting?",
+    answer:
+      "Podemos ayudarte a contratarlos, o bien encargarnos por completo si preferís no preocuparte por eso.",
+  },
+  {
+    question: "¿Hacen mantenimiento o actualizaciones?",
+    answer:
+      "Sí. Ofrecemos planes de mantenimiento opcionales para que tu sitio esté siempre actualizado y seguro.",
+  },
+  {
+    question: "¿Puedo pagar en cuotas?",
+    answer:
+      "Claro. Aceptamos pagos en cuotas con tarjeta o por transferencia en partes según el avance del proyecto.",
+  },
+];
+---
+
+<section
+  id="faq"
+  class="scroll-offset px-6 py-24 text-offwhite"
+  aria-labelledby="titulo-faq"
+>
+  <div class="max-w-4xl mx-auto">
+    <h2
+      id="titulo-faq"
+      class="text-3xl md:text-5xl font-deco text-gold text-center mb-12"
+    >
+      Preguntas frecuentes
+    </h2>
+
+    <div class="space-y-6">
+      {
+        faqs.map(({ question, answer }, i) => (
+          <details
+            class="group bg-[#1a1a1a] rounded-xl p-5 shadow-md animate-fadein transition-all outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            style={{ animationDelay: `${0.07 + i * 0.06}s` }}
+          >
+            <summary class="flex items-center justify-between cursor-pointer text-gold text-base md:text-lg font-medium">
+              <div class="flex items-center gap-3">
+                <IconHelp class="w-5 h-5 shrink-0" />
+                {question}
+              </div>
+              <span class="text-xl transition-transform group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <p class="mt-3 text-sm text-[#dcdcdc] leading-relaxed">{answer}</p>
+          </details>
+        ))
+      }
+    </div>
+
+    <p class="mt-12 text-center text-sm text-[#888]">
+      ¿Tenés otra duda?{" "}
+      <a
+        href="#contacto"
+        class="text-gold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      >
+        Escribinos acá
+      </a>
+      .
+    </p>
+  </div>
+</section>

@@ -6,7 +6,7 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
 
 <section
   id="contacto"
-  class="px-6 py-24 text-center text-offwhite"
+  class="scroll-offset px-6 py-24 text-center text-offwhite"
   aria-labelledby="titulo-contacto"
 >
   <h2
@@ -16,8 +16,12 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
     ¿Listo para potenciar tu marca?
   </h2>
 
-  <p class="text-base sm:text-lg text-[#ddd] max-w-xl mx-auto mb-8">
-    Contactanos y descubrí cómo podemos transformar tu presencia digital.
+  <p
+    class="text-base sm:text-lg text-[#ddd] max-w-xl mx-auto mb-10 leading-relaxed"
+  >
+    Contactanos y descubrí cómo podemos transformar tu presencia digital. <br
+      class="hidden sm:inline"
+    />
     Respondemos siempre en el día.
   </p>
 
@@ -29,7 +33,7 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
     Escribinos
   </a>
 
-  <div
+  <nav
     class="flex justify-center gap-6 mb-6"
     role="navigation"
     aria-label="Redes sociales Delfos Studio"
@@ -64,10 +68,10 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
     >
       <IconBrandWhatsapp class="w-6 h-6" />
     </a>
-  </div>
+  </nav>
 
-  <p class="text-sm text-[#888] max-w-md mx-auto">
-    También podés encontrarnos en redes sociales o agendar una videollamada
-    cuando quieras.
+  <p class="text-sm text-[#888] max-w-md mx-auto leading-relaxed">
+    También podés encontrarnos en redes sociales<br class="sm:hidden" />
+    o agendar una videollamada cuando quieras.
   </p>
 </section>
