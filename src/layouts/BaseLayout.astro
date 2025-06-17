@@ -9,26 +9,43 @@ import Footer from "../components/Footer.astro";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delfos Studio · Agencia Creativa</title>
 
+    <!-- SEO General -->
     <meta
       name="description"
       content="Agencia creativa de diseño web, branding, automatización y SEO. Convertimos ideas en experiencias digitales."
     />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://delfos-two.vercel.app/" />
 
-    <!-- Theme-color para navegador -->
+    <!-- Theme para navegador -->
     <meta name="theme-color" content="#0f1113" />
 
-    <!-- SEO Social -->
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="Delfos Studio · Agencia Creativa" />
     <meta
       property="og:description"
       content="Diseño web moderno, branding visual, automatización y SEO para marcas que piensan en el futuro."
     />
+    <meta property="og:url" content="https://delfos-two.vercel.app/" />
     <meta
       property="og:image"
-      content="/assets/logos/delfos-logo-fondo-oscuro.png"
+      content="https://delfos-two.vercel.app/assets/social/delfos-og-image.jpg"
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:alt" content="Logo y tagline de Delfos Studio" />
+    <meta property="og:site_name" content="Delfos Studio" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Delfos Studio · Agencia Creativa" />
+    <meta
+      name="twitter:description"
+      content="Diseño web moderno, branding visual, automatización y SEO para marcas que piensan en el futuro."
+    />
+    <meta
+      name="twitter:image"
+      content="https://delfos-two.vercel.app/assets/social/delfos-og-image.jpg"
+    />
 
     <!-- Favicon -->
     <link
@@ -37,29 +54,30 @@ import Footer from "../components/Footer.astro";
       type="image/png"
     />
 
-    <!-- Preload fonts -->
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preload de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="manifest" href="/manifest.json" />
-
   </head>
 
   <body
     class="relative bg-[#0f1113] text-[#ededed] font-primary min-h-screen flex flex-col transition-colors duration-300"
   >
-    <!-- Overlay editorial dorado -->
+    <!-- Overlay dorado -->
     <div
       aria-hidden="true"
       class="pointer-events-none fixed inset-0 z-0"
-      style="background: radial-gradient(ellipse 100% 60% at 70% 10%, #C2A87522 0%, transparent 70%);"
+      style="background: radial-gradient(ellipse 100% 60% at 70% 10%, #C2A87522 0%, transparent 70%)"
     >
     </div>
 
-    <!-- Skip to main content -->
+    <!-- Skip to main -->
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-gold text-[#0f1113] rounded px-4 py-2 z-50 shadow-lg"
@@ -72,6 +90,7 @@ import Footer from "../components/Footer.astro";
     <main id="main" class="flex-1 relative z-10">
       <slot />
     </main>
+
     <Footer />
   </body>
 </html>
