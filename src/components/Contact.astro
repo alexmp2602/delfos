@@ -1,5 +1,7 @@
 ---
 import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
+import IconBrandInstagram from "./icons/IconBrandInstagram.astro";
+import IconBrandLinkedin from "./icons/IconBrandLinkedin.astro";
 ---
 
 <section
@@ -23,24 +25,25 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
     Respondemos siempre en el día.
   </p>
 
-  <a
-    href="https://wa.me/+5492324674177"
-    class="inline-block bg-[#192e38] hover:bg-gold hover:text-black text-white font-medium px-8 py-3 rounded-full transition mb-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-    aria-label="Enviar mensaje a Delfos Studio"
-  >
-    <IconBrandWhatsapp class="inline-block w-5 h-5 mr-2" />
-    Escribinos
-  </a>
+  <div class="flex justify-center mb-6">
+    <a
+      href="https://wa.me/+5492324674177"
+      target="_blank"
+      class="inline-flex items-center bg-[#192e38] hover:bg-gold hover:text-black text-white font-medium px-8 py-3 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      aria-label="Enviar mensaje a Delfos Studio"
+    >
+      <IconBrandWhatsapp class="w-5 h-5 mr-2" />
+      Escribinos
+    </a>
+  </div>
 
   <nav
     class="flex justify-center gap-6 mb-6"
     role="navigation"
     aria-label="Redes sociales Delfos Studio"
   >
-    {
-      /*
     <a
-      href="https://instagram.com/delfosstudio"
+      href="https://instagram.com/delfos.studio"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Instagram"
@@ -51,7 +54,7 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
     </a>
 
     <a
-      href="https://linkedin.com/company/delfosstudio"
+      href="https://www.linkedin.com/in/delfos-studio/"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="LinkedIn"
@@ -60,8 +63,6 @@ import IconBrandWhatsapp from "./icons/IconBrandWhatsapp.astro";
     >
       <IconBrandLinkedin class="w-6 h-6" />
     </a>
-    */
-    }
   </nav>
 
   <p class="text-sm text-[#888] max-w-md mx-auto leading-relaxed">
