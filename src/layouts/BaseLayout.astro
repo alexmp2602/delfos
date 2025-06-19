@@ -64,6 +64,19 @@ import Footer from "../components/Footer.astro";
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LYX4XL9L20T"></script>
+    <!-- Google Analytics -->
+    <script is:raw>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-LYX4XL9L20T");
+    </script>
   </head>
 
   <body
