@@ -1,31 +1,45 @@
 ---
 const plans = [
   {
-    name: "Landing Pro",
-    desc: "Una sección larga, responsive, llamada a la acción y contacto.",
+    name: "Landing Starter",
+    desc: "Tu negocio online listo para compartir y comenzar a vender.",
     features: [
-      "Ideal para lanzar tu marca o servicio",
+      "Página visual y responsive, ideal para redes",
+      "Botón directo a WhatsApp para pedidos y consultas",
+      "Muestra productos o servicios con claridad",
+      "Alineada con la identidad de tu marca",
+      "Lista para escalar a futuro",
+    ],
+  },
+  {
+    name: "Landing Pro",
+    desc: "Impulsá tu marca con una landing optimizada y persuasiva.",
+    features: [
+      "Sección larga con llamada a la acción efectiva",
       "Carga rápida y diseño profesional",
-      "Listo para publicar en 7 días",
+      "Contacto fácil para convertir visitantes en clientes",
+      "Lista en 7 días para acelerar tu presencia online",
     ],
   },
   {
     name: "Web Corporativa",
-    desc: "3 a 5 secciones, responsive, formulario y SEO básico.",
+    desc: "Mostrá tu negocio al mundo con una web institucional profesional.",
     features: [
-      "Página institucional moderna",
-      "Formularios de contacto",
+      "3 a 5 secciones claras y responsivas",
+      "Formularios de contacto integrados",
+      "Diseño alineado a tu branding",
       "Optimización básica para buscadores",
     ],
     highlight: true,
   },
   {
     name: "Tienda o Web Expandida",
-    desc: "10+ secciones, blog, catálogo o ecommerce.",
+    desc: "Escalá tu negocio con una tienda online completa.",
     features: [
-      "Catálogo de productos y/o blog",
-      "Integración de pasarela de pagos",
+      "Más de 10 secciones con blog y catálogo",
+      "Pasarela de pagos integrada",
       "Automatizaciones y funcionalidades avanzadas",
+      "Preparada para escalar tu negocio online",
     ],
   },
 ];
@@ -44,7 +58,7 @@ const plans = [
       Paquetes
     </h2>
 
-    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+    <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
       {
         plans.map(({ name, desc, features, highlight }, i) => (
           <div
@@ -94,8 +108,7 @@ const plans = [
     </div>
 
     <p class="mt-10 text-sm text-center text-[#888] max-w-xl mx-auto">
-      * Precios estimativos. Consultá por combos, mantenimiento o desarrollo a
-      medida.
+      * Consultá por combos, mantenimiento o desarrollo a medida.
     </p>
   </div>
 </section>

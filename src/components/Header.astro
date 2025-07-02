@@ -2,9 +2,8 @@
 import MobileMenu from "./MobileMenu.jsx";
 
 const nav = [
-  { label: "Inicio", href: "/" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Portafolio", href: "#portfolio" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Paquetes", href: "#paquetes" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -20,21 +19,16 @@ const nav = [
     <!-- Logo + marca -->
     <a
       href="/"
-      class="flex items-center gap-4 group"
+      class="flex items-center"
       aria-label="Inicio - Delfos Studio"
     >
       <img
-        src="/assets/logos/delfos-logo-transparente-recortado.png"
+        src="/assets/logos/delfos-logo-horizontal-transparente-recortado.png"
         alt="Logo Delfos Studio"
-        class="w-12 md:w-16 aspect-square object-contain"
+        class="w-16 md:w-32"
         loading="lazy"
         decoding="async"
       />
-      <span
-        class="hidden sm:inline-block text-xl md:text-2xl font-deco font-semibold tracking-wide text-offwhite"
-      >
-        Delfos Studio
-      </span>
     </a>
 
     <!-- Navegación escritorio -->
