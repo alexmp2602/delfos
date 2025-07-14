@@ -8,24 +8,24 @@ const faqs = [
       "Solo una idea general de tu proyecto. Nosotros te guiamos con lo demás: diseño, contenido y objetivos.",
   },
   {
-    question: "¿Puedo pedir más secciones después?",
+    question: "¿Puedo pedir más secciones o funciones después?",
     answer:
-      "Sí, todos los sitios están pensados para escalar. Podemos agregar secciones, blog o tienda cuando lo necesites.",
+      "Sí, todos los sitios están pensados para escalar. Podemos sumar formularios, blog, tienda o lo que necesites.",
   },
   {
     question: "¿Incluyen dominio y hosting?",
     answer:
-      "Podemos ayudarte a contratarlos, o bien encargarnos por completo si preferís no preocuparte por eso.",
+      "Podemos ayudarte a contratarlos o gestionarlos por vos. Si preferís, nos encargamos de todo para que no te preocupes por nada.",
   },
   {
-    question: "¿Hacen mantenimiento o actualizaciones?",
+    question: "¿Ofrecen mantenimiento y soporte técnico?",
     answer:
-      "Sí. Ofrecemos planes de mantenimiento opcionales para que tu sitio esté siempre actualizado y seguro.",
+      "Sí. Contamos con planes de mantenimiento web y soporte técnico remoto para que tu sitio y equipo estén siempre funcionando.",
   },
   {
-    question: "¿Puedo pagar en cuotas?",
+    question: "¿Hacen branding o identidad visual?",
     answer:
-      "Claro. Aceptamos pagos en cuotas con tarjeta o por transferencia en partes según el avance del proyecto.",
+      "Sí, diseñamos logos, paletas de color, tipografías y posteos listos para redes sociales. Ideal para lanzar tu marca.",
   },
 ];
 ---
@@ -44,25 +44,23 @@ const faqs = [
     </h2>
 
     <div class="space-y-6">
-      {
-        faqs.map(({ question, answer }, i) => (
-          <details
-            class="group bg-[#1a1a1a] rounded-xl p-5 shadow-md animate-fadein transition-all outline-none focus-visible:ring-2 focus-visible:ring-gold"
-            style={{ animationDelay: `${0.07 + i * 0.06}s` }}
-          >
-            <summary class="flex items-center justify-between cursor-pointer text-gold text-base md:text-lg font-medium">
-              <div class="flex items-center gap-3">
-                <IconHelp class="w-5 h-5 shrink-0" />
-                {question}
-              </div>
-              <span class="text-xl transition-transform group-open:rotate-45">
-                +
-              </span>
-            </summary>
-            <p class="mt-3 text-sm text-[#dcdcdc] leading-relaxed">{answer}</p>
-          </details>
-        ))
-      }
+      {faqs.map(({ question, answer }, i) => (
+        <details
+          class="group bg-[#1a1a1a] rounded-xl p-5 shadow-md animate-fadein transition-all outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          style={{ animationDelay: `${0.07 + i * 0.06}s` }}
+        >
+          <summary class="flex items-center justify-between cursor-pointer text-gold text-base md:text-lg font-medium">
+            <div class="flex items-center gap-3">
+              <IconHelp class="w-5 h-5 shrink-0" />
+              {question}
+            </div>
+            <span class="text-xl transition-transform group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-[#dcdcdc] leading-relaxed">{answer}</p>
+        </details>
+      ))}
     </div>
 
     <p class="mt-12 text-center text-sm text-[#888]">
